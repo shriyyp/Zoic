@@ -17,7 +17,7 @@ export default function ZoicAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', text: "Woof! I'm your Zoic Assistant. Ask me anything about your pets or wildlife! 🐾" }
+    { role: 'model', text: "Woof! I'm your Zoic Assistant, powered by Gemini. Ask me anything about your pets or wildlife! 🐾" }
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -72,10 +72,9 @@ export default function ZoicAssistant() {
                   <Bot size={22} />
                 </div>
                 <div>
-                  <h3 className="font-black text-sm uppercase tracking-widest">Zoic Assistant</h3>
-                  <div className="flex items-center gap-1.5 opacity-70">
-                    <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-[10px] font-bold">Online</span>
+                  <h3 className="font-black text-sm uppercase tracking-widest leading-none">Zoic Assistant</h3>
+                  <div className="flex items-center gap-1.5 mt-1">
+                    <span className="text-[10px] font-bold py-0.5 px-1.5 bg-white/20 rounded text-white/90 uppercase tracking-tighter">Gemini Powered</span>
                   </div>
                 </div>
               </div>
@@ -128,8 +127,8 @@ export default function ZoicAssistant() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Ask me anything..."
-                  className="w-full pl-6 pr-14 py-4 bg-zoic-sand-bg rounded-[20px] text-sm font-bold focus:outline-none focus:ring-2 focus:ring-zoic-green transition-all"
+                  placeholder="Powered by Gemini..."
+                  className="w-full pl-6 pr-14 py-4 bg-zoic-sand-bg rounded-[20px] text-sm font-bold focus:outline-none focus:ring-2 focus:ring-zoic-green transition-all placeholder:text-zoic-dark/30"
                 />
                 <button
                   onClick={handleSend}

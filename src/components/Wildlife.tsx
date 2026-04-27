@@ -55,9 +55,12 @@ export default function Wildlife() {
       {/* Wildlife Journal Card */}
       <div className="zoic-card-green relative overflow-hidden flex flex-col min-h-[300px]">
         <div className="relative z-10 space-y-2">
-          <div className="flex items-center gap-2">
-            <Camera size={20} />
-            <h3 className="text-lg font-bold">Wildlife Journal</h3>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Camera size={20} />
+              <h3 className="text-lg font-bold">Wildlife Journal</h3>
+            </div>
+            <div className="bg-white/10 text-white text-[8px] font-black px-2 py-0.5 rounded uppercase tracking-tighter">Gemini Powered</div>
           </div>
           <p className="text-white/80 text-sm font-medium">Identify and track creatures in the wild.</p>
         </div>
@@ -90,7 +93,7 @@ export default function Wildlife() {
             <Loader2 size={32} className="animate-spin text-zoic-sand-bg" />
             <div>
               <h3 className="text-lg font-bold">Identifying Species...</h3>
-              <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mt-1">AI Analysis in progress</p>
+              <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mt-1">Gemini AI Analysis</p>
             </div>
           </motion.div>
         )}
@@ -115,17 +118,26 @@ export default function Wildlife() {
       )}
 
       {/* Sightings Grid */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {sightings.map((s) => (
-          <div key={s.id} className="zoic-card p-2 group active:scale-[0.98] transition-transform">
-            <div className="aspect-square rounded-[16px] overflow-hidden mb-3">
-              <img src={s.photo} alt={s.speciesName} className="w-full h-full object-cover" />
+          <motion.div 
+            layout
+            key={s.id} 
+            className="zoic-card p-2 group active:scale-[0.98] transition-all hover:shadow-xl hover:shadow-zoic-green/5"
+          >
+            <div className="aspect-square rounded-[18px] overflow-hidden mb-3 relative">
+              <img src={s.photo} alt={s.speciesName} className="w-full h-full object-cover transition-transform group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-zoic-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2">
+                 <button className="w-full bg-white/20 backdrop-blur-md text-white text-[9px] font-black uppercase py-2 rounded-[10px]">
+                   View Details
+                 </button>
+              </div>
             </div>
             <div className="px-1 pb-1">
               <h4 className="font-bold text-sm truncate">{s.speciesName}</h4>
               <p className="text-[10px] font-bold text-zoic-green/40 uppercase tracking-widest">{new Date(s.timestamp).toLocaleDateString([], { month: 'short', day: 'numeric' })}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

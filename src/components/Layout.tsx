@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { Home, Camera, LifeBuoy, User, PlusCircle } from 'lucide-react';
+import { Home, Camera, LifeBuoy, User, PlusCircle, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -83,7 +83,6 @@ export default function Layout({ onLaunchDemo }: { onLaunchDemo?: () => void }) 
 
       <ZoicAssistant />
 
-      {/* Bottom Navigation (Mobile Only) */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[400px] z-50 md:hidden">
         <nav className="bg-zoic-dark px-6 py-4 rounded-[30px] flex justify-between items-center shadow-2xl">
           <NavTab to="/" icon={<Home size={20} />} label="Home" />
@@ -101,14 +100,14 @@ function NavTab({ to, icon, label }: { to: string, icon: React.ReactNode, label:
     <NavLink 
       to={to} 
       className={({ isActive }) => cn(
-        "flex flex-col items-center gap-0.5 transition-all duration-300 px-4 py-2 rounded-2xl",
-        isActive ? "tab-active bg-white/10" : "tab-inactive"
+        "flex flex-col items-center gap-0.5 transition-all duration-300",
+        isActive ? "tab-active" : "tab-inactive"
       )}
     >
       <div className="mb-0.5">
         {icon}
       </div>
-      <span className="text-[9px] font-bold uppercase tracking-widest">{label}</span>
+      <span className="text-[10px] font-bold">{label}</span>
     </NavLink>
   );
 }

@@ -20,7 +20,7 @@
 }
 
 .mobile-container {
-  @apply max-w-md mx-auto min-h-screen bg-zoic-sand-bg relative pb-28;
+  @apply min-h-screen bg-zoic-sand-bg relative;
 }
 
 .zoic-card {

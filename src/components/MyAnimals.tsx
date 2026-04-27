@@ -51,9 +51,9 @@ export default function MyAnimals() {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Main Animals Card */}
-        <div className="zoic-card space-y-4">
+        <div className="zoic-card space-y-4 h-full">
           <div className="flex items-center gap-2 mb-2">
              <div className="text-zoic-green"><PawPrint size={20} /></div>
              <h3 className="text-lg font-bold">My Animals</h3>

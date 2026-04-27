@@ -1,0 +1,9 @@
+{
+  "name": "Zoic",
+  "description": "A universal animal companion app for pet owners, farmers, wildlife observers, and rescuers.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  --color-zoic-green: #2D5A27;
+  --color-zoic-dark: #1B2E19;
+  --color-zoic-sand-bg: #E8D5B5;
+  --color-zoic-white: #FFFFFF;
+  
+  --radius-zoic: 24px;
+}
+
+@layer base {
+  body {
+    @apply bg-zoic-sand-bg text-zoic-dark font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.mobile-container {
+  @apply max-w-md mx-auto min-h-screen bg-zoic-sand-bg relative pb-28;
+}
+
+.zoic-card {
+  @apply bg-white rounded-[24px] p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] border-none;
+}
+
+.zoic-card-green {
+  @apply bg-zoic-green text-white rounded-[24px] p-6 shadow-lg;
+}
+
+.status-pill {
+  @apply text-[11px] px-2.5 py-1 rounded-[20px] font-semibold;
+}
+
+.status-pill-green {
+  @apply bg-[#E2EEDD] text-zoic-green;
+}
+
+.status-pill-amber {
+  @apply bg-[#FEF3C7] text-[#92400E];
+}
+
+.tab-active {
+  @apply text-white relative;
+}
+
+.tab-active::after {
+  content: '';
+  @apply absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-zoic-sand-bg rounded-full;
+}
+
+.tab-inactive {
+  @apply text-white/60;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.pulse-animation {
+  animation: pulse-soft 2s infinite ease-in-out;
+}
